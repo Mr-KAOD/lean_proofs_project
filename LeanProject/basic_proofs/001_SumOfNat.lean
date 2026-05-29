@@ -1,4 +1,4 @@
-import Mathlib
+import Mathlib.Tactic
 
 def sumTo : Nat → Nat
   | 0 => 0
