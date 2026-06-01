@@ -52,6 +52,7 @@ theorem Cassini (n : Nat) :
     induction n using Nat.strong_induction_on with
     | h n ih =>
 
+      -- FRIST CASE:  n = 0
       by_cases h : n = 0
       ·
         -- Base Case: n = 0
