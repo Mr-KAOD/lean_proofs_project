@@ -1,4 +1,4 @@
-import Mathlib
+import Mathlib.Tactic
 
 def sumSquares : Nat → Nat
   | 0 => 0
