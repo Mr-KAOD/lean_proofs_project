@@ -1,6 +1,6 @@
 /-
  ===============================================================
-    CASSINI'S IDENTITY
+    CASSINI'S IDENTITY (WEAK INDUCTION)
  ===============================================================
 -/
 import Mathlib.Tactic
@@ -19,6 +19,9 @@ def F : Nat → Int
 
 -- This lemma does what the definition does when n>1 but applied to F (k+3).
 lemma F_for_k_plus_3 (k : Nat) : F (k + 3) = F (k + 2) + F (k + 1) := by rfl
+lemma F_for_a_plus_b (a b : ℕ):
+  F (a + (b + 2)) = (F (a + (b + 1)) + F (a + b)) := by
+  simp [F, Nat.add_assoc]
 
 theorem cassinis_identity (n : Nat) :
 -- We want to prove Cassini's Indentity in which
@@ -43,9 +46,9 @@ F (n + 2) * F (n) - F (n + 1) ^2 = (-1) ^(n + 1) := by
       -- We are unfolding
       -- F (k + 3) * F (k + 1) - F (k + 2) ^ 2 = (F (k + 2) + F (k + 1)) * F (k + 1) - F (k + 2) ^ 2
       -- using lemma F_for_k_plus_3.
-      rw [F_for_k_plus_3]
+      rw [F_for_a_plus_b k 1]
 
-      have h1 : (F (k + 2) + F (k + 1)) * F (k + 1) - F (k + 1 + 1) ^ 2 = F (k + 1) ^ 2 - F (k + 2) * (F (k + 2) - F (k + 1)) := by ring
+      have h1 : (F (k + 2) + F (k + 1)) * F (k + 1) - F (k + 2) ^ 2 = F (k + 1) ^ 2 - F (k + 2) * (F (k + 2) - F (k + 1)) := by ring
 
       have h2 : F (k + 2) - F (k + 1) = F (k)  := by
         -- To get the form of the induction hypotesis
