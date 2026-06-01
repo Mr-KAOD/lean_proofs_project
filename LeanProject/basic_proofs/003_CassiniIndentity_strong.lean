@@ -5,27 +5,16 @@ def F : Nat → Int
   | 1 => 1
   | m + 1 => (F (m - 1)) + (F m)
 
-lemma F_m2 (m : Nat) :
-  F (m + 2) = (F m) + (F (m + 1)) := by
-  cases m with
-  | zero =>
-    sorry
-  | succ k =>
-    sorry
-
-
-lemma unfold (k : Nat) (ok: k ≠ 0):
+lemma unfold (k : Nat) (ok: k > 0):
   F (k + 1) = (F (k - 1) + F k) := by
 
   cases k with
   | zero =>
     contradiction
   | succ j =>
-    simp [F_m2]
+    simp [F]
 
-lemma F_big (n : Nat) (ok : n ≥ 2) :
-  F (k + n) = (F (k + n - 1)) + (F (k + n - 2)) := by
-    sorry
+
 
 lemma F_sub_mid (n : Nat) (ok : n >= 1) :
   F n = (F (n + 1)) - (F (n - 1)) := by
@@ -33,14 +22,10 @@ lemma F_sub_mid (n : Nat) (ok : n >= 1) :
     | zero =>
       contradiction
     | succ k =>
-      simp [F_m2]
+      simp [F]
 
 lemma F_sub_low (n : Nat) :
   (F (n - 1)) = (F (n + 1)) - (F n) := by sorry
-
-lemma subAdd (a b c : Int) (ok :c = b - a):
-  n - a + b = n + c := by
-  sorry
 
 lemma rearrange_sub (k : ℕ) (h : k ≥ 1) : (k - 1) + a = (k + a) - 1 := by
   rw [Nat.sub_add_comm h]
@@ -72,11 +57,11 @@ theorem Cassini (n : Nat) :
 
         have hk1 : k + 1 >= 1 := by
           omega
-        have hk0' : k ≠ 0 := by
+        have hk0' : k > 0 := by
           sorry
-        have hk1' : k + 1 ≠ 0 := by
+        have hk1' : k + 1 > 0 := by
           omega
-        have hk2' : k + 2 ≠ 0 := by
+        have hk2' : k + 2 > 0 := by
           omega
 
         change F (k + 1) * F (k + 3) - F (k + 2) ^ 2 = (-1) ^ (k + 2)
