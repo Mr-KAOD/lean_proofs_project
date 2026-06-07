@@ -1,6 +1,6 @@
 /-
  ===============================================================
-    EXISTENCE OF y(t) = e^{at}
+    EXISTENCE OF y(t) = e^{at} -- Version 2
  ===============================================================
 -/
 
@@ -10,7 +10,9 @@ import Mathlib
 We are proving the existance of the solution y(t) = e^{at} that satifies for all t that y'(t) = ay(t), when y(0) =x_0.
 -/
 
-theorem excistence_simple_ode (a x₀ : ℝ) :
+theorem existence_simple_ode (a x₀ : ℝ) :
+-- ∃ has two sides: building it (proving a universal statement) and
+-- destroying it (using one).
 -- Use of the tactic exists (∃):
   -- Structure: ∃ x : T, P x
   -- it means that "there exists some x of type T such that P x holds..."
