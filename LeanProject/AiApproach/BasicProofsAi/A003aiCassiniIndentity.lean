@@ -3,8 +3,7 @@
     CASSINI'S IDENTITY (Claude)
  ===============================================================
 -/
-import Mathlib.Tactic
-import Mathlib.Data.Nat.Fib
+import Mathlib
 
 theorem cassini (n : ℕ) (hn : 1 ≤ n) :
     (Nat.fib (n + 1) : ℤ) * Nat.fib (n - 1) - (Nat.fib n : ℤ) ^ 2 = (-1) ^ n := by
