@@ -39,7 +39,7 @@ theorem existence_simple_ode (a x₀ : ℝ) :
   -- To achieve this, we are using constructor tactic that splits the current goal into its components.
   constructor
   -- Since we are using ^, constructor splits the goal into the witness and the proof.
-  · intro t
+  · intro t       -- Introduction of t because of the ∀t
   -- GOAL 1:
   /-
     ∀ (t : ℝ), HasDerivAt (fun t => Real.exp (a * t) * x₀)
