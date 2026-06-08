@@ -70,7 +70,7 @@ F (n + 2) * F (n) - F (n + 1) ^2 = (-1) ^(n + 1) := by
         ring
 
       rw [h4]
--- ======================================================================================
+-- ==============================================================================
 /-
 --> This is was the first attempt of the proof using tactics as conv_lhs trying to do
     all the algebra manually step-by-step. Even though the proof above was done manualy

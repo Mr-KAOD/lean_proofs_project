@@ -76,7 +76,6 @@ theorem existence_simple_ode (a x0 : ℝ) :
     /-
     HasDerivAt (fun y => (Real.exp ∘ HMul.hMul a) y * x0)
       (Real.exp (a * t) * a * x0)
-      t
     -/
 
     -- Simplify h3 using

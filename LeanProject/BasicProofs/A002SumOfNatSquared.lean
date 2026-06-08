@@ -1,4 +1,10 @@
-import Mathlib.Tactic
+/-
+ ===============================================================
+    SUM OF NATURAL NUMBERS SQUARED
+ ===============================================================
+-/
+
+import Mathlib
 
 def sumSquares : Nat → Nat
   | 0 => 0
